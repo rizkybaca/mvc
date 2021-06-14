@@ -1,7 +1,10 @@
 <div class="container mt-3">
 
-	<div class="row">
-		<div class="col-6">
+	<div class="row col-6">
+		<?php Flasher::flash(); ?>
+	</div>
+
+	<div class="row col-6">
 			<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#formModal">
 				Tambah Data Mahasiswa
 			</button>
@@ -14,7 +17,6 @@
 			  </li>
 			  <?php endforeach; ?>
 			</ul>			
-		</div>
 	</div>
 
 </div>
