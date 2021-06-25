@@ -6,9 +6,20 @@
 
 	<div class="row col-6">
 		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#formModal">
+		<button type="button" class="btn btn-primary mb-3 tombolTambahData" data-toggle="modal" data-target="#formModal">
 		  Tambah Data Mahasiswa
 		</button>
+	</div>
+
+	<div class="row col-6">
+		<form action="<?= BASEURL; ?>/mahasiswa/cari" method="POST">
+			<div class="input-group mb-3">
+			  <input type="text" class="form-control" placeholder="cari mahasiswa di sini.." name="keyword" id="keyword" autocomplete="off">
+			  <div class="input-group-append">
+			    <button class="btn btn-outline-primary" type="submit" id="tombolCari" name="cari">Cari</button>
+			  </div>
+			</div>
+		</form>
 	</div>
 
 	<div class="row col-6">
@@ -21,7 +32,7 @@
 		  <li class="list-group-item">
 		  	<?= $mhs['nama'] ?>
 		  	<a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge badge-danger badge-pill mr-1 float-right" onclick="return confirm('yakin?')">hapus</a>
-		  	<a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="badge badge-success badge-pill mr-1 float-right tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal">ubah</a>
+		  	<a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id']; ?>" class="badge badge-success badge-pill mr-1 float-right tampilModalUbah" data-toggle="modal" data-target="#formModal" data-id="<?= $mhs['id']; ?>">ubah</a>
 		  	<a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge badge-primary badge-pill mr-1 float-right">detail</a>
 		  </li>
 		  <?php endforeach; ?>
@@ -43,6 +54,7 @@
       </div>
       <div class="modal-body">
         <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="POST">
+        	<input type="hidden" name="id" id="id">
         	<div class="form-group">
 				    <label for="nama">Nama</label>
 				    <input type="text" class="form-control" name="nama" id="nama">
@@ -58,7 +70,6 @@
 				  <div class="form-group">
 				    <label for="jurusan">Jurusan</label>
 				    <select class="form-control" name="jurusan" id="jurusan">
-				      <option>-pilih jurusan di bawah ini-</option>
 						  <option value="Pendidikan Teknologi Informasi">Pendidikan Teknologi Informasi</option>
 						  <option value="Perancangan Wilayah Kota">Perancangan Wilayah Kota</option>
 						  <option value="Teknik Elektro">Teknik Elektro</option>
