@@ -1,2 +1,2 @@
 # mvc
-repo php mvc
+repo for learning php mvc template
